@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Graphics/ledder.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Ladder_body_entered(body):
+	if body.is_in_group(\"Climber\"):
+		if body.climbing == false:
+			body.climbing = true
+
+
+func _on_Ladder_body_exited(body):
+	if body.is_in_group(\"Climber\"):
+		if body.climbing == true:
+			body.climbing = false
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.7032, 126.948 )
+
+[node name="UniversalThings" type="Node2D"]
+
+[node name="Ladder" type="Area2D" parent="."]
+position = Vector2( 476.22, -433.36 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder"]
+position = Vector2( 7.13524, 0 )
+scale = Vector2( 1.05574, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
+position = Vector2( -0.924133, -1.34103 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Ladder" to="Ladder" method="_on_Ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Ladder" method="_on_Ladder_body_exited"]

@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "FirstAttackSpriteSheet.png",
+			"size": {
+				"w": 512,
+				"h": 256
+			},
+			"sprites": [
+				{
+					"filename": "MC256fight1.png",
+					"region": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "MC256fight2.png",
+					"region": {
+						"x": 256,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:4ddb261787c748ec15e59cec1c527db6:4f6b454cf34802dc2b2a8be1cafe4ae8:dc8f06d8ea103658c5de3bd89902516a$"
+	}
+}

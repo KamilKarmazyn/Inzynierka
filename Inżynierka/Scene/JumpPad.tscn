@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://JumpPad.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/HealthBar2.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24.4559, 6.31358 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="JumpPad" type="Area2D" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPad"]
+position = Vector2( 0.579533, 3.68642 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="JumpPad"]
+position = Vector2( 0.261593, -6.62007 )
+scale = Vector2( 0.202225, 0.228296 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="JumpPad" to="JumpPad" method="_on_JumpPad_body_entered"]
