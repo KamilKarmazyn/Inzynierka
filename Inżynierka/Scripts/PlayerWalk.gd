@@ -89,7 +89,7 @@ func Move_Hero():
 	velocity += Move
 	velocity.x = clamp(velocity.x, -Max_speed, Max_speed)
 	velocity = move_and_slide(velocity, Up)
-
+	print(health)
 
 				
 func _on_AttackDetector_body_entered(body):
