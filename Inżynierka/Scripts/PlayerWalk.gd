@@ -99,3 +99,9 @@ func _on_CoinBox_area_entered(area):
 	if area.is_in_group("Coin"):
 		coin += 1
 		get_parent().find_node("Tresure").find_node("Coin").frame += 1
+	if area.is_in_group("Chest"):
+		chest += 1
+		get_parent().find_node("Tresure").find_node("Chest").frame += 1
+	if area.is_in_group("Gem"):
+		chest += 1
+		get_parent().find_node("Tresure").find_node("Gem").frame += 1

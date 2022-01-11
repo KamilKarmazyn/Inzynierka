@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Graphics/Coinan2256.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/Coinan3256.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/Coinan1256.png" type="Texture" id=3]
-[ext_resource path="res://Scene/CoinBox.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/CoinBox.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ChestBox.gd" type="Script" id=5]
+[ext_resource path="res://Graphics/chestinfloor256.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/GemInthefloor0250.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/GemInthefloor2256.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/GemInthefloor4256.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/GemInthefloor1256.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/GemInthefloor3256.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/GemBox.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "SHIINNYYY",
 "speed": 5.0
@@ -16,9 +24,25 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 35.8469
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 108.5, 80.5 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "SHINNYYYY",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 78.0
+height = 86.0
+
 [node name="TossACoinToTheWitcher" type="Node2D"]
 
 [node name="CoinBox" type="Area2D" parent="." groups=["Coin"]]
+position = Vector2( 282, -127 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -29,9 +53,42 @@ position = Vector2( 0, -14 )
 scale = Vector2( 0.667448, 0.572335 )
 frames = SubResource( 1 )
 animation = "SHIINNYYY"
+speed_scale = 0.8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinBox" groups=["Coin"]]
 shape = SubResource( 2 )
 
+[node name="ChestBox" type="Area2D" parent="." groups=["Chest"]]
+position = Vector2( 316, 15 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ChestBox" groups=["Chest"]]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChestBox" groups=["Chest"]]
+position = Vector2( -3.5, 46.5 )
+shape = SubResource( 3 )
+
+[node name="GemBox" type="Area2D" parent="." groups=["Gem"]]
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GemBox" groups=["Gem"]]
+frames = SubResource( 4 )
+animation = "SHINNYYYY"
+frame = 6
+speed_scale = 0.4
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GemBox" groups=["Gem"]]
+shape = SubResource( 5 )
+
 [connection signal="area_entered" from="CoinBox" to="CoinBox" method="_on_CoinBox_area_entered"]
+[connection signal="area_entered" from="ChestBox" to="ChestBox" method="_on_ChestBox_area_entered"]
+[connection signal="area_entered" from="GemBox" to="GemBox" method="_on_GemBox_area_entered"]

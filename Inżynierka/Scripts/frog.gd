@@ -27,16 +27,17 @@ func detect_turn_around():
 		scale.x = -scale.x
 	
 func _on_MCDetector_body_entered(body):
-	if body.get("MC") == "Player":
+	if  body.is_in_group("Player"):
 		$AnimatedSprite.play("Attack")
 		
 func _on_MCDetector_body_exited(body):
-	if body.get("MC") == "Player":
+	if  body.is_in_group("Player"):
 		$AnimatedSprite.play("Walk")
 
 
 func _on_HurtBox_area_entered(area):
-	$AnimatedSprite.play("Dead")
+	if  area.is_in_group("Player"):
+		$AnimatedSprite.play("Dead")
 
 func _on_AnimatedSprite_animation_finished():
 	if ($AnimatedSprite.animation == "Dead"):

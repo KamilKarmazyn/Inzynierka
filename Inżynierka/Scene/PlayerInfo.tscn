@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/PlayerWalk.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/MC32idle.png" type="Texture" id=2]
@@ -14,8 +14,12 @@
 [ext_resource path="res://Scene/Hitbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Graphics/HealthSprite01.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/HealthSprite.gd" type="Script" id=14]
-[ext_resource path="res://Scene/CoinAdd.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/CoinAdd.gd" type="Script" id=15]
 [ext_resource path="res://Graphics/Coin.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/ChestAdd.gd" type="Script" id=17]
+[ext_resource path="res://Graphics/chest1.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/GemAdd.gd" type="Script" id=19]
+[ext_resource path="res://Graphics/Gem1.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -57,7 +61,7 @@ extents = Vector2( 1.50838, 2.42521 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 3.1308, 3.06282 )
 
-[node name="PlayerInfo" type="Node2D" groups=["Player"]]
+[node name="PlayerInfo" type="Node2D"]
 position = Vector2( 96.1666, 254.558 )
 
 [node name="Player" type="KinematicBody2D" parent="." groups=["Player"]]
@@ -77,7 +81,7 @@ frame = 1
 speed_scale = 1.2
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" groups=["Player"]]
+[node name="PlayerStamp" type="CollisionShape2D" parent="Player" groups=["Player"]]
 position = Vector2( -1.12552, -1.67488 )
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
@@ -105,47 +109,29 @@ position = Vector2( 0.159359, 0.0855751 )
 position = Vector2( -2.7847, -1.75549 )
 shape = SubResource( 3 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
+[node name="RayCast2D" type="RayCast2D" parent="Player" groups=["Player"]]
 position = Vector2( -1.11309, -1.28207 )
 scale = Vector2( 0.0722742, 0.0452804 )
 enabled = true
 
-[node name="Detector" type="Area2D" parent="Player"]
+[node name="Detector" type="Area2D" parent="Player" groups=["Player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector" groups=["Player"]]
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -1.04738, -1.46311 )
 shape = SubResource( 4 )
 
-[node name="CoinBox" type="Area2D" parent="Player"]
+[node name="TresureBox" type="Area2D" parent="Player"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CoinBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/TresureBox"]
 position = Vector2( -1.08899, -1.66958 )
 rotation = -3.14159
 scale = Vector2( 0.934936, -0.990523 )
 shape = SubResource( 5 )
 
-[node name="ChestBox" type="Area2D" parent="Player"]
-scale = Vector2( 1, 1 )
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ChestBox"]
-position = Vector2( -1.08899, -1.66958 )
-rotation = -3.14159
-scale = Vector2( 0.934936, -0.990523 )
-shape = SubResource( 5 )
-
-[node name="GemBox" type="Area2D" parent="Player"]
-scale = Vector2( 1, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GemBox"]
-position = Vector2( -1.089, -1.6243 )
-rotation = -3.14159
-scale = Vector2( 0.934936, -0.990523 )
-shape = SubResource( 5 )
-
-[node name="UI" type="CanvasLayer" parent="." groups=["Player"]]
-
-[node name="HealthSprite" type="Sprite" parent="UI" groups=["Player"]]
+[node name="HealthSprite" type="Sprite" parent="UI"]
 position = Vector2( 139.575, 63.4929 )
 scale = Vector2( 2.26045, 1.99213 )
 texture = ExtResource( 13 )
@@ -156,20 +142,30 @@ script = ExtResource( 14 )
 [node name="Tresure" type="CanvasLayer" parent="."]
 
 [node name="Coin" type="Sprite" parent="Tresure"]
-position = Vector2( 419, 62 )
-scale = Vector2( 2.22632, 1.46875 )
+position = Vector2( 406, 66 )
+scale = Vector2( 2.22632, 1.89063 )
 texture = ExtResource( 16 )
 hframes = 4
 script = ExtResource( 15 )
 
 [node name="Chest" type="Sprite" parent="Tresure"]
+position = Vector2( 642, 66 )
+scale = Vector2( 2.226, 1.891 )
+texture = ExtResource( 18 )
+hframes = 4
+script = ExtResource( 17 )
 
 [node name="Gem" type="Sprite" parent="Tresure"]
+position = Vector2( 864, 68 )
+scale = Vector2( 2.226, 1.891 )
+texture = ExtResource( 20 )
+hframes = 4
+script = ExtResource( 19 )
 
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Player/Hitbox" to="Player" method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Player/Hitbox2" to="Player" method="_on_Hitbox2_area_entered"]
-[connection signal="area_entered" from="Player/CoinBox" to="Player" method="_on_CoinBox_area_entered"]
+[connection signal="area_entered" from="Player/TresureBox" to="Player" method="_on_CoinBox_area_entered"]
 
 [editable path="Player/Hitbox"]
 [editable path="Player/Hitbox2"]
