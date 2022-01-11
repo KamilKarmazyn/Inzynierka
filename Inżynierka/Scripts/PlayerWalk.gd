@@ -4,9 +4,12 @@ var dead = false
 const MC = "Player"
 const Speed = 20
 const knockback = 200
-const jump = -600
+const jump = -800
 const Up = Vector2(0, -1)
 export (int) var health = 3 
+export (int) var coin = 3 
+export (int) var chest = 3 
+export (int) var gem = 3 
 var velocity = Vector2(0,0)
 var rushLeft = true
 var friction = 20
@@ -16,44 +19,6 @@ var vertical_speed = 100
 onready var raycast = $RayCast2D
 onready var detector = $Detector
 var motion = Vector2()
-
-
-func _is_colliding_with_LadderTop():
-	var collider = null
-	if raycast.is_colliding():
-		collider = raycast.get_collider()
-		if "Ladder_Top".to_upper() in collider.name.to_upper():
-			return true
-	return false
-	
-func _is_on_ladder():
-	var areas = detector.get_overlapping_areas()
-	if areas.size() > 0:
-		for area in areas:
-			if "ladder".to_upper() in area.name.to_upper() and !Input.is_action_pressed("ui_up") and !_is_colliding_with_LadderTop():
-				on_ladder = true
-	else:
-		on_ladder = false
-	return on_ladder 
-	
-func ladder_movement():
-	motion = Vector2.ZERO
-	var y_input = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	if _is_colliding_with_LadderTop() and Input.is_action_pressed("ui_down"):
-		gravity = 0
-		on_ladder = true
-		self.position.y = self.position.y + 0.1
-		
-	if on_ladder:
-		gravity = 0
-		if y_input != 0:
-			motion.y = y_input * (vertical_speed + friction)
-		else:
-			motion.y = 0
-	else:
-			gravity = 20
-			
-			
 
 func _ready():
 	GlobalHp.Player = null
@@ -128,3 +93,9 @@ func _on_AnimatedSprite_animation_finished():
 			get_tree().reload_current_scene()
 	if ($AnimatedSprite.animation == "Auc"):
 		$AnimatedSprite.play("stop")
+
+
+func _on_CoinBox_area_entered(area):
+	if area.is_in_group("Coin"):
+		coin += 1
+		get_parent().find_node("Tresure").find_node("Coin").frame += 1

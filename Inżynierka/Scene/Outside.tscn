@@ -6,7 +6,7 @@
 [ext_resource path="res://Graphics/OutsideFloor0.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/DessertBackgroundcactus12.png" type="Texture" id=5]
 [ext_resource path="res://Scene/JumpPad.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scene/ladder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scene/TossACoinToTheWitcher.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Graphics/Piramid128.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/Spike.gd" type="Script" id=14]
 [ext_resource path="res://Graphics/door64.png" type="Texture" id=15]
@@ -359,14 +359,8 @@ shape = SubResource( 9 )
 [node name="frog" parent="Enemy" index="0"]
 position = Vector2( 785.103, 1105.89 )
 
-[node name="AnimatedSprite" parent="Enemy/frog" index="1"]
-frame = 0
-
 [node name="Snake" parent="Enemy" index="1"]
 position = Vector2( 1333.42, 896.274 )
-
-[node name="AnimatedSprite" parent="Enemy/Snake" index="1"]
-frame = 0
 
 [node name="PlayerInfo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -189.566, -713.757 )
@@ -374,19 +368,17 @@ position = Vector2( -189.566, -713.757 )
 [node name="Jumppad" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1708.95, 1473.35 )
 
-[node name="ladder" parent="." instance=ExtResource( 7 )]
-position = Vector2( 494.827, -354.561 )
-rotation = 0.00731443
-ladder_tile = 1000
+[node name="JumpPad" parent="Jumppad" index="0"]
+position = Vector2( -17.314, -41.0364 )
+scale = Vector2( 0.510431, 0.412259 )
 
-[node name="LadderAreaColl" parent="ladder/LadderArea" index="0"]
-position = Vector2( -17.5156, -91.8363 )
+[node name="TossACoinToTheWitcher" parent="." instance=ExtResource( 7 )]
 
-[node name="LadderTopColl" parent="ladder/LadderTop" index="0"]
-position = Vector2( -18.2804, -7.12845 )
+[node name="CoinBox" parent="TossACoinToTheWitcher" index="0"]
+position = Vector2( 1648.64, 744.314 )
 
-[node name="Sprite" parent="ladder" index="2"]
-position = Vector2( -13.5812, -79.4028 )
+[node name="AnimatedSprite" parent="TossACoinToTheWitcher/CoinBox" index="0"]
+frame = 1
 
 [connection signal="body_entered" from="SpriteBank/Door/Area2D" to="SpriteBank/Door" method="_on_Area2D_body_entered"]
 
@@ -397,4 +389,5 @@ position = Vector2( -13.5812, -79.4028 )
 [editable path="PlayerInfo"]
 [editable path="PlayerInfo/Player/Hitbox"]
 [editable path="PlayerInfo/Player/Hitbox2"]
-[editable path="ladder"]
+[editable path="Jumppad"]
+[editable path="TossACoinToTheWitcher"]

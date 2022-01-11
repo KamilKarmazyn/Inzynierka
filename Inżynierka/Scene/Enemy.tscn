@@ -101,7 +101,6 @@ shape = SubResource( 1 )
 position = Vector2( 16.7202, 121.435 )
 frames = SubResource( 2 )
 animation = "Dead"
-frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( -9.0448, -126.774 )
@@ -149,7 +148,6 @@ position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
 animation = "Walk"
-frame = 1
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake" groups=["BadGuy"]]

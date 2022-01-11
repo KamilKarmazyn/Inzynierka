@@ -1,26 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://JumpPad.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/HealthBar2.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Jumppad2562.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Jumppad256.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.4559, 6.31358 )
+extents = Vector2( 69.5, 63.3136 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="JumpPad" type="Area2D" parent="."]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpPad"]
-position = Vector2( 0.579533, 3.68642 )
+position = Vector2( -0.500004, 60.6864 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="JumpPad"]
-position = Vector2( 0.261593, -6.62007 )
-scale = Vector2( 0.202225, 0.228296 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="JumpPad"]
+frames = SubResource( 2 )
+animation = "stop"
+speed_scale = 0.5
 
 [connection signal="body_entered" from="JumpPad" to="JumpPad" method="_on_JumpPad_body_entered"]
+[connection signal="body_exited" from="JumpPad" to="JumpPad" method="_on_JumpPad_body_exited"]
+[connection signal="animation_finished" from="JumpPad/AnimatedSprite" to="JumpPad" method="_on_AnimatedSprite_animation_finished"]
