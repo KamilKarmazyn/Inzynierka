@@ -33,20 +33,20 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "Auc",
-"speed": 5.0
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Dead",
-"speed": 3.0
+"frames": [ ExtResource( 3 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Auc",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -86,7 +86,7 @@ position = Vector2( -1.12552, -1.67488 )
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
-[node name="Camera2D" type="Camera2D" parent="Player" groups=["Player"]]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 8.09572, -1.10915 )
 rotating = true
 current = true

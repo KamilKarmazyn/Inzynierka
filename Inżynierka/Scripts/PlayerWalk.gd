@@ -68,7 +68,7 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("BadGuy"):
 		$AnimatedSprite.play("Auc")
 		velocity.x = -knockback if rushLeft else knockback
-		velocity.y -= 500
+		velocity.y -= 1000
 		health -= 1
 		get_parent().find_node("UI").find_node("HealthSprite").frame -= 1
 		if health <= 0 and not dead:
@@ -85,6 +85,9 @@ func _on_Hitbox2_area_entered(area):
 		if health <= 0 and not dead:
 			$AnimatedSprite.play("Dead")
 			dead = true
+
+
+
 
 
 

@@ -16,7 +16,7 @@ config/icon="res://Graphics/Torch.png"
 
 [autoload]
 
-AutoloadMusic="*res://music/AutoloadMusic.tscn"
+AutoloadMusic="*res://Scene/AutoloadMusic.tscn"
 GlobalHp="*res://Scripts/GlobalHP.gd"
 Tresure="*res://Scripts/Tresure.gd"
 

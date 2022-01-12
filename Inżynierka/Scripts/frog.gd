@@ -22,7 +22,7 @@ func move_character():
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 func detect_turn_around():
-	if not $RayCast2D.is_colliding() and not is_on_floor():
+	if not $RayCast2D.is_colliding() and not is_on_floor() or is_on_wall():
 		rushLeft = !rushLeft
 		scale.x = -scale.x
 	

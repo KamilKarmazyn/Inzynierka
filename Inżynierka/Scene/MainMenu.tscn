@@ -20,9 +20,6 @@ position = Vector2( -0.859218, 2.7345 )
 scale = Vector2( 0.937544, 0.527259 )
 texture = ExtResource( 7 )
 centered = false
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Play" type="Button" parent="."]
 margin_left = 6.21735
