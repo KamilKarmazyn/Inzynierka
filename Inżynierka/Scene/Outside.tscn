@@ -378,7 +378,7 @@ position = Vector2( 3185.64, 192.314 )
 scale = Vector2( 0.512361, 0.294713 )
 
 [node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher/GemBox" index="0"]
-frame = 7
+frame = 4
 
 [node name="TossACoinToTheWitcher3" parent="SpriteBank" instance=ExtResource( 7 )]
 
@@ -396,7 +396,7 @@ position = Vector2( 1947.64, -322.686 )
 scale = Vector2( 0.512, 0.295 )
 
 [node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher3/GemBox" index="0"]
-frame = 7
+frame = 4
 
 [node name="TossACoinToTheWitcher4" parent="SpriteBank" instance=ExtResource( 7 )]
 
@@ -414,10 +414,13 @@ position = Vector2( 3968.64, -510.686 )
 scale = Vector2( 0.512, 0.295 )
 
 [node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher4/GemBox" index="0"]
-frame = 7
+frame = 4
 
 [node name="PlayerInfo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -185.364, 998.314 )
+
+[node name="AnimatedSprite" parent="PlayerInfo/Player" index="0"]
+frame = 0
 
 [node name="JumpMarioJump" type="Node2D" parent="."]
 
