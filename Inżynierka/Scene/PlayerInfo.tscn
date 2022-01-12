@@ -76,9 +76,9 @@ scale = Vector2( 0.0376332, 0.0359517 )
 z_index = 1
 z_as_relative = false
 frames = SubResource( 1 )
-animation = "Auc"
-frame = 1
-speed_scale = 1.2
+animation = "Dead"
+frame = 3
+speed_scale = 2.5
 playing = true
 
 [node name="PlayerStamp" type="CollisionShape2D" parent="Player" groups=["Player"]]
@@ -86,7 +86,7 @@ position = Vector2( -1.12552, -1.67488 )
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["Player"]]
 position = Vector2( 8.09572, -1.10915 )
 rotating = true
 current = true
@@ -96,20 +96,20 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Hitbox" parent="Player" groups=["Player"] instance=ExtResource( 12 )]
+[node name="Hitbox" parent="Player" instance=ExtResource( 12 )]
 
-[node name="CollisionShape2D" parent="Player/Hitbox" index="0" groups=["Player"]]
+[node name="CollisionShape2D" parent="Player/Hitbox" index="0"]
 position = Vector2( 0.402386, -1.68418 )
 shape = SubResource( 3 )
 
-[node name="Hitbox2" parent="Player" groups=["Player"] instance=ExtResource( 12 )]
+[node name="Hitbox2" parent="Player" instance=ExtResource( 12 )]
 position = Vector2( 0.159359, 0.0855751 )
 
-[node name="CollisionShape2D" parent="Player/Hitbox2" index="0" groups=["Player"]]
+[node name="CollisionShape2D" parent="Player/Hitbox2" index="0"]
 position = Vector2( -2.7847, -1.75549 )
 shape = SubResource( 3 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Player" groups=["Player"]]
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
 position = Vector2( -1.11309, -1.28207 )
 scale = Vector2( 0.0722742, 0.0452804 )
 enabled = true
@@ -121,9 +121,9 @@ modulate = Color( 1, 0, 0, 1 )
 position = Vector2( -1.04738, -1.46311 )
 shape = SubResource( 4 )
 
-[node name="TresureBox" type="Area2D" parent="Player"]
+[node name="TresureBox" type="Area2D" parent="Player" groups=["Player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/TresureBox"]
+[node name="TresureTake" type="CollisionShape2D" parent="Player/TresureBox" groups=["Player"]]
 position = Vector2( -1.08899, -1.66958 )
 rotation = -3.14159
 scale = Vector2( 0.934936, -0.990523 )
