@@ -28,9 +28,9 @@ animations = [ {
 "name": "stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "jump",
+"frames": [ ExtResource( 3 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Auc",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ) ],
@@ -38,14 +38,14 @@ animations = [ {
 "name": "Dead",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "Auc",
 "speed": 5.0
 } ]
 

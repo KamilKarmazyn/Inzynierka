@@ -23,7 +23,7 @@ func move_character():
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 func detect_turn_around():
-	if not $RayCast2D.is_colliding() and not is_on_floor():
+	if not $RayCast2D.is_colliding() and not is_on_floor() or is_on_wall():
 		rushLeft = !rushLeft
 		scale.x = -scale.x
 	
@@ -41,7 +41,8 @@ func _on_MCDetector_body_exited(body):
 
 
 func _on_HurtBox_area_entered(area):
-	$AnimatedSprite.play("Dead")
+	if  area.is_in_group("Player"):
+		$AnimatedSprite.play("Dead")
 
 func _on_AnimatedSprite_animation_finished():
 	if ($AnimatedSprite.animation == "Dead"):

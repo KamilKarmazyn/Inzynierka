@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/frog.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/CrazyFrog64attack.png" type="Texture" id=2]
@@ -13,21 +13,22 @@
 [ext_resource path="res://Scripts/KingScorpion.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Snake.gd" type="Script" id=12]
 [ext_resource path="res://Graphics/Spike512.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/snakedead64.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.02332, 11.8771 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Dead",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
@@ -50,6 +51,11 @@ extents = Vector2( 5.48589, 7.25 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Walk",
@@ -70,12 +76,12 @@ extents = Vector2( 18.9334, 8.44944 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "Walk",
+"name": "Dead",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Dead",
+"name": "Walk",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -114,6 +120,7 @@ shape = SubResource( 1 )
 position = Vector2( 16.7202, 121.435 )
 frames = SubResource( 2 )
 animation = "Dead"
+frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( -9.0448, -126.774 )
@@ -147,6 +154,7 @@ shape = SubResource( 5 )
 
 [node name="Snake" type="KinematicBody2D" parent="." groups=["BadGuy"]]
 position = Vector2( 302.414, -12.6051 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
@@ -160,7 +168,8 @@ shape = SubResource( 6 )
 position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
-animation = "Walk"
+animation = "Dead"
+frame = 1
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake" groups=["BadGuy"]]
@@ -185,6 +194,7 @@ rotation = -1.58116
 shape = SubResource( 4 )
 
 [node name="HurtBox" parent="Snake" instance=ExtResource( 7 )]
+position = Vector2( 3.793, 0.30255 )
 
 [node name="CollisionShape2D" parent="Snake/HurtBox" index="0"]
 position = Vector2( 7.88334, 22.2517 )
