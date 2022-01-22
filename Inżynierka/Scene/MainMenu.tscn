@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Exit.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Graphics/CaveStory.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Play.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/BackgroundMenu.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/Play.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/ExitNV.png" type="Texture" id=9]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 0, -1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BackgroundMenu" type="Sprite" parent="."]
+position = Vector2( -0.859218, 2.7345 )
+scale = Vector2( 0.937544, 0.527259 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Play" type="Button" parent="."]
+margin_left = 6.21735
+margin_top = 156.126
+margin_right = 257.217
+margin_bottom = 397.126
+size_flags_horizontal = 0
+icon = ExtResource( 8 )
+flat = true
+clip_text = true
+align = 0
+expand_icon = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 15.0
+margin_top = 408.0
+margin_right = 259.0
+margin_bottom = 632.0
+shortcut_in_tooltip = false
+icon = ExtResource( 9 )
+flat = true
+clip_text = true
+expand_icon = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 450.099, 75.1888 )
+scale = Vector2( 3.48405, 1.09075 )
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="Volume" type="Label" parent="."]
+margin_left = 1808.45
+margin_top = 8.84221
+margin_right = 1906.45
+margin_bottom = 22.8422
+text = "Volume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+margin_left = 1801.66
+margin_top = 25.3303
+margin_right = 1910.66
+margin_bottom = 41.3303
+min_value = -30.0
+max_value = 10.0
+value = -10.0
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Play" to="Play" method="_on_Button_pressed"]
+[connection signal="pressed" from="Exit" to="Exit" method="_on_Button_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]

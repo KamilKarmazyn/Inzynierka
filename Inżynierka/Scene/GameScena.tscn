@@ -1,0 +1,340 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scene/PlayerInfo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Flat.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Torch2.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/Background2512.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/Torch.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/GroundOutside64.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/BackgroundGame.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/Background1512.png" type="Texture" id=15]
+
+[sub_resource type="AnimatedTexture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "GroundOutside64.png 0"
+0/texture = ExtResource( 13 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 4 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "GroundOutside64.png 0"
+0/texture = ExtResource( 13 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 6 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConcavePolygonShape2D" id=8]
+segments = PoolVector2Array( 64, 32, 0, 32, 0, 32, 0, 0, 0, 0, 64, 0, 64, 0, 64, 32 )
+
+[sub_resource type="TileSet" id=9]
+0/name = "Flat.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 8 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Flat.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 0
+1/autotile/bitmask_flags = [  ]
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 16, 16 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "Flat.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 16, 0, 16, 16 )
+2/tile_mode = 1
+2/autotile/bitmask_mode = 0
+2/autotile/bitmask_flags = [  ]
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 16, 16 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Flat.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 64, 32 )
+3/tile_mode = 1
+3/autotile/bitmask_mode = 0
+3/autotile/bitmask_flags = [  ]
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 16, 16 )
+3/autotile/spacing = 0
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
+[sub_resource type="TileSet" id=11]
+0/name = "Flat.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 10 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="ThePiramidLVL1" type="Node2D"]
+position = Vector2( 1, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -1
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1440, 400 )
+
+[node name="Background1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -454.483, -452.795 )
+scale = Vector2( 3.94205, 2.70682 )
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 14 )
+normal_map = SubResource( 3 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 163.403, 240.572 )
+scale = Vector2( 1.75793, 1.23804 )
+z_as_relative = false
+texture = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 14.0001, -134 )
+scale = Vector2( 1.69531, 0.976563 )
+texture = ExtResource( 10 )
+
+[node name="GameRoute" type="Node" parent="."]
+
+[node name="GroundOutside05" type="TileMap" parent="GameRoute"]
+position = Vector2( 3, 0 )
+tile_set = SubResource( 5 )
+cell_size = Vector2( 32, 32 )
+show_collision = true
+format = 1
+
+[node name="GrandOutside1" type="TileMap" parent="GameRoute"]
+position = Vector2( 1, 0 )
+tile_set = SubResource( 7 )
+show_collision = true
+format = 1
+
+[node name="Game Road" type="TileMap" parent="GameRoute"]
+z_as_relative = false
+tile_set = SubResource( 9 )
+cell_size = Vector2( 64, 32 )
+cell_tile_origin = 1
+show_collision = true
+format = 1
+
+[node name="GameBoard" type="TileMap" parent="GameRoute"]
+position = Vector2( 1, 0 )
+tile_set = SubResource( 11 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 1114101, 0, 0, 1114102, 0, 0, 1114103, 0, 0, 1114104, 0, 0, 1114105, 0, 0, 1114106, 0, 0, 1114107, 0, 0, 1114108, 0, 0, 1114109, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0 )
+
+[node name="PlayerInfo" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1214, -344 )
+
+[node name="ToManyTorch" type="Node" parent="."]
+
+[node name="Torch" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 208.543, 140.821 )
+scale = Vector2( 0.370944, 0.43716 )
+frames = SubResource( 12 )
+frame = 1
+speed_scale = 0.5
+playing = true
+
+[node name="Torch2" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 717.981, 143.773 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
+
+[node name="Torch3" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 1129.45, 144.773 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
+
+[node name="Torch4" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 1538.53, 152.097 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
+
+[node name="Torch5" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 1559.27, 617.021 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+frame = 1
+speed_scale = 0.5
+playing = true
+
+[node name="Torch6" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 1152.27, 601.271 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
+
+[node name="Torch7" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 716.876, 597.574 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
+
+[node name="Torch8" type="AnimatedSprite" parent="ToManyTorch"]
+position = Vector2( 206.345, 598.989 )
+scale = Vector2( 0.371, 0.437 )
+frames = SubResource( 12 )
+speed_scale = 0.5
+playing = true
