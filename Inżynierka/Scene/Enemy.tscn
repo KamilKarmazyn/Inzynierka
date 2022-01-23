@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/frog.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/CrazyFrog64attack.png" type="Texture" id=2]
@@ -14,26 +14,29 @@
 [ext_resource path="res://Scripts/Snake.gd" type="Script" id=12]
 [ext_resource path="res://Graphics/Spike512.png" type="Texture" id=13]
 [ext_resource path="res://Graphics/snakedead64.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/EnemyTriangleslash256.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/EnemyTriangle2560.png" type="Texture" id=16]
+[ext_resource path="res://Graphics/EnemyTrianglewalk256.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.02332, 11.8771 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
-"name": "Dead",
-"speed": 10.0
+"name": "Attack",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "Attack",
-"speed": 5.0
+"name": "Dead",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -51,9 +54,9 @@ extents = Vector2( 5.48589, 7.25 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "Dead",
+"name": "Attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 4 ) ],
@@ -61,9 +64,9 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "Attack",
+"name": "Dead",
 "speed": 5.0
 } ]
 
@@ -71,28 +74,22 @@ animations = [ {
 extents = Vector2( 18.9334, 8.44944 )
 
 [sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 11.6406, 11.3508 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "Dead",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
-"frames": [  ],
+"frames": [ ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Walk",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
-
-[sub_resource type="RectangleShape2D" id=13]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 156, 60.75 )
@@ -152,6 +149,94 @@ position = Vector2( -1086.75, -1233.2 )
 position = Vector2( 1092.64, 1242.49 )
 shape = SubResource( 5 )
 
+[node name="frog2" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 2175.6, 2442.62 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frog2" groups=["BadGuy"]]
+position = Vector2( -11.4395, 12.7399 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="frog2" groups=["BadGuy"]]
+position = Vector2( 16.7202, 121.435 )
+frames = SubResource( 2 )
+animation = "Attack"
+frame = 1
+speed_scale = 0.5
+playing = true
+offset = Vector2( -9.0448, -126.774 )
+
+[node name="RayCast2D" type="RayCast2D" parent="frog2" groups=["BadGuy"]]
+position = Vector2( -26.7505, -22.4934 )
+enabled = true
+collision_mask = 4
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="frog2" groups=["BadGuy"]]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frog2/MCDetector" groups=["BadGuy"]]
+position = Vector2( -28.1165, 1.2085 )
+shape = SubResource( 3 )
+
+[node name="AttackDetector" type="Area2D" parent="frog2" groups=["BadGuy"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="frog2/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -15.2576, 1.79907 )
+rotation = -1.58116
+shape = SubResource( 4 )
+
+[node name="HurtBox" parent="frog2" instance=ExtResource( 7 )]
+position = Vector2( -1086.75, -1233.2 )
+
+[node name="CollisionShape2D" parent="frog2/HurtBox" index="0"]
+position = Vector2( 1092.64, 1242.49 )
+shape = SubResource( 5 )
+
+[node name="frog3" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 1087.8, 1221.31 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frog3" groups=["BadGuy"]]
+position = Vector2( -11.4395, 12.7399 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="frog3" groups=["BadGuy"]]
+position = Vector2( 16.7202, 121.435 )
+frames = SubResource( 2 )
+animation = "Attack"
+frame = 1
+speed_scale = 0.5
+playing = true
+offset = Vector2( -9.0448, -126.774 )
+
+[node name="RayCast2D" type="RayCast2D" parent="frog3" groups=["BadGuy"]]
+position = Vector2( -26.7505, -22.4934 )
+enabled = true
+collision_mask = 4
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="frog3" groups=["BadGuy"]]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frog3/MCDetector" groups=["BadGuy"]]
+position = Vector2( -28.1165, 1.2085 )
+shape = SubResource( 3 )
+
+[node name="AttackDetector" type="Area2D" parent="frog3" groups=["BadGuy"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="frog3/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -15.2576, 1.79907 )
+rotation = -1.58116
+shape = SubResource( 4 )
+
+[node name="HurtBox" parent="frog3" instance=ExtResource( 7 )]
+position = Vector2( -1086.75, -1233.2 )
+
+[node name="CollisionShape2D" parent="frog3/HurtBox" index="0"]
+position = Vector2( 1092.64, 1242.49 )
+shape = SubResource( 5 )
+
 [node name="Snake" type="KinematicBody2D" parent="." groups=["BadGuy"]]
 position = Vector2( 302.414, -12.6051 )
 scale = Vector2( 2, 2 )
@@ -169,7 +254,7 @@ position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
 animation = "Dead"
-frame = 1
+frame = 2
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake" groups=["BadGuy"]]
@@ -200,35 +285,241 @@ position = Vector2( 3.793, 0.30255 )
 position = Vector2( 7.88334, 22.2517 )
 shape = SubResource( 9 )
 
-[node name="KingScorpion" type="KinematicBody2D" parent="." groups=["BadGuy"]]
-script = ExtResource( 11 )
+[node name="Snake2" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 907.242, -37.8153 )
+scale = Vector2( 4, 4 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KingScorpion" groups=["BadGuy"]]
-shape = SubResource( 10 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake2" groups=["BadGuy"]]
+position = Vector2( -13.5141, 23.5 )
+shape = SubResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KingScorpion" groups=["BadGuy"]]
-frames = SubResource( 11 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Snake2" groups=["BadGuy"]]
+position = Vector2( 1, 4.125 )
+scale = Vector2( 1, 0.859375 )
+frames = SubResource( 7 )
 animation = "Dead"
+frame = 2
+playing = true
 
-[node name="MCDetector" type="Area2D" parent="KingScorpion" groups=["BadGuy"]]
+[node name="RayCast2D" type="RayCast2D" parent="Snake2" groups=["BadGuy"]]
+position = Vector2( -23.8346, -7.18494 )
+enabled = true
+collision_mask = 3
+collide_with_areas = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KingScorpion/MCDetector" groups=["BadGuy"]]
-position = Vector2( -16.25, 0 )
-shape = SubResource( 12 )
-
-[node name="AttackDetector" type="Area2D" parent="KingScorpion" groups=["BadGuy"]]
+[node name="MCDetector" type="Area2D" parent="Snake2" groups=["BadGuy"]]
 collision_layer = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="KingScorpion/AttackDetector" groups=["BadGuy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake2/MCDetector" groups=["BadGuy"]]
+position = Vector2( -29.3665, 23.1042 )
+shape = SubResource( 3 )
+
+[node name="AttackDetector" type="Area2D" parent="Snake2" groups=["BadGuy"]]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Snake2/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -20.9509, 21.4982 )
+rotation = -1.58116
+shape = SubResource( 4 )
+
+[node name="HurtBox" parent="Snake2" instance=ExtResource( 7 )]
+position = Vector2( 3.793, 0.30255 )
+
+[node name="CollisionShape2D" parent="Snake2/HurtBox" index="0"]
+position = Vector2( 7.88334, 22.2517 )
+shape = SubResource( 9 )
+
+[node name="Snake3" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 907.242, -37.8153 )
+scale = Vector2( 4, 4 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake3" groups=["BadGuy"]]
+position = Vector2( -13.5141, 23.5 )
+shape = SubResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Snake3" groups=["BadGuy"]]
+position = Vector2( 1, 4.125 )
+scale = Vector2( 1, 0.859375 )
+frames = SubResource( 7 )
+animation = "Dead"
+frame = 3
+playing = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Snake3" groups=["BadGuy"]]
+position = Vector2( -23.8346, -7.18494 )
+enabled = true
+collision_mask = 3
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="Snake3" groups=["BadGuy"]]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake3/MCDetector" groups=["BadGuy"]]
+position = Vector2( -29.3665, 23.1042 )
+shape = SubResource( 3 )
+
+[node name="AttackDetector" type="Area2D" parent="Snake3" groups=["BadGuy"]]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Snake3/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -20.9509, 21.4982 )
+rotation = -1.58116
+shape = SubResource( 4 )
+
+[node name="HurtBox" parent="Snake3" instance=ExtResource( 7 )]
+position = Vector2( 3.793, 0.30255 )
+
+[node name="CollisionShape2D" parent="Snake3/HurtBox" index="0"]
+position = Vector2( 7.88334, 22.2517 )
+shape = SubResource( 9 )
+
+[node name="EvilTriangle" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 1060, 450 )
+scale = Vector2( 3.84, 4.96 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle" groups=["BadGuy"]]
+position = Vector2( -1.64063, 1.35081 )
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EvilTriangle" groups=["BadGuy"]]
+position = Vector2( -7, -4 )
+scale = Vector2( 0.138446, 0.130127 )
+frames = SubResource( 11 )
+animation = "Attack"
+frame = 1
+playing = true
+
+[node name="RayCast2D" type="RayCast2D" parent="EvilTriangle"]
+position = Vector2( -18.2292, -20.5645 )
+enabled = true
+collision_mask = 4
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="EvilTriangle" groups=["BadGuy"]]
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle/MCDetector" groups=["BadGuy"]]
+position = Vector2( -16.6667, 0 )
+shape = SubResource( 12 )
+
+[node name="AttackDetector" type="Area2D" parent="EvilTriangle" groups=["BadGuy"]]
+position = Vector2( -2.08333, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EvilTriangle/AttackDetector" groups=["BadGuy"]]
 position = Vector2( -18.2009, 0.748169 )
 rotation = -1.58116
 shape = SubResource( 4 )
 
-[node name="HurtBox" parent="KingScorpion" instance=ExtResource( 7 )]
+[node name="EvilTriangle2" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 5130.4, 2682 )
+scale = Vector2( 14.7456, 24.6016 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" parent="KingScorpion/HurtBox" index="0"]
-position = Vector2( -27.625, -1.75 )
-shape = SubResource( 13 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle2" groups=["BadGuy"]]
+position = Vector2( -1.64063, 1.35081 )
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EvilTriangle2" groups=["BadGuy"]]
+position = Vector2( -7, -4 )
+scale = Vector2( 0.138446, 0.130127 )
+frames = SubResource( 11 )
+animation = "Attack"
+frame = 1
+playing = true
+
+[node name="RayCast2D" type="RayCast2D" parent="EvilTriangle2"]
+position = Vector2( -18.2292, -20.5645 )
+enabled = true
+collision_mask = 4
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="EvilTriangle2" groups=["BadGuy"]]
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle2/MCDetector" groups=["BadGuy"]]
+position = Vector2( -16.6667, 0 )
+shape = SubResource( 12 )
+
+[node name="AttackDetector" type="Area2D" parent="EvilTriangle2" groups=["BadGuy"]]
+position = Vector2( -2.08333, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EvilTriangle2/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -18.2009, 0.748169 )
+rotation = -1.58116
+shape = SubResource( 4 )
+
+[node name="EvilTriangle3" type="KinematicBody2D" parent="." groups=["BadGuy"]]
+position = Vector2( 1060, 450 )
+scale = Vector2( 3.84, 4.96 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle3" groups=["BadGuy"]]
+position = Vector2( -1.64063, 1.35081 )
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EvilTriangle3" groups=["BadGuy"]]
+position = Vector2( -7, -4 )
+scale = Vector2( 0.138446, 0.130127 )
+frames = SubResource( 11 )
+animation = "Attack"
+playing = true
+
+[node name="RayCast2D" type="RayCast2D" parent="EvilTriangle3"]
+position = Vector2( -18.2292, -20.5645 )
+enabled = true
+collision_mask = 4
+collide_with_areas = true
+
+[node name="MCDetector" type="Area2D" parent="EvilTriangle3" groups=["BadGuy"]]
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvilTriangle3/MCDetector" groups=["BadGuy"]]
+position = Vector2( -16.6667, 0 )
+shape = SubResource( 12 )
+
+[node name="AttackDetector" type="Area2D" parent="EvilTriangle3" groups=["BadGuy"]]
+position = Vector2( -2.08333, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EvilTriangle3/AttackDetector" groups=["BadGuy"]]
+position = Vector2( -18.2009, 0.748169 )
+rotation = -1.58116
+shape = SubResource( 4 )
 
 [node name="Spike" type="KinematicBody2D" parent="." groups=["BadGuy"]]
 visible = false
@@ -317,17 +608,43 @@ shape = SubResource( 15 )
 [connection signal="body_entered" from="frog/MCDetector" to="frog" method="_on_MCDetector_body_entered"]
 [connection signal="body_exited" from="frog/MCDetector" to="frog" method="_on_MCDetector_body_exited"]
 [connection signal="area_entered" from="frog/HurtBox" to="frog" method="_on_HurtBox_area_entered"]
+[connection signal="animation_finished" from="frog2/AnimatedSprite" to="frog2" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="frog2/MCDetector" to="frog2" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="frog2/MCDetector" to="frog2" method="_on_MCDetector_body_exited"]
+[connection signal="area_entered" from="frog2/HurtBox" to="frog2" method="_on_HurtBox_area_entered"]
+[connection signal="animation_finished" from="frog3/AnimatedSprite" to="frog3" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="frog3/MCDetector" to="frog3" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="frog3/MCDetector" to="frog3" method="_on_MCDetector_body_exited"]
+[connection signal="area_entered" from="frog3/HurtBox" to="frog3" method="_on_HurtBox_area_entered"]
 [connection signal="animation_finished" from="Snake/AnimatedSprite" to="Snake" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Snake/MCDetector" to="Snake" method="_on_MCDetector_body_entered"]
 [connection signal="body_exited" from="Snake/MCDetector" to="Snake" method="_on_MCDetector_body_exited"]
 [connection signal="body_entered" from="Snake/AttackDetector" to="Snake" method="_on_AttackDetector_body_entered"]
 [connection signal="area_entered" from="Snake/HurtBox" to="Snake" method="_on_HurtBox_area_entered"]
-[connection signal="body_entered" from="KingScorpion/AttackDetector" to="frog" method="_on_AttackDetector_body_entered"]
+[connection signal="animation_finished" from="Snake2/AnimatedSprite" to="Snake2" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Snake2/MCDetector" to="Snake2" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="Snake2/MCDetector" to="Snake2" method="_on_MCDetector_body_exited"]
+[connection signal="body_entered" from="Snake2/AttackDetector" to="Snake2" method="_on_AttackDetector_body_entered"]
+[connection signal="area_entered" from="Snake2/HurtBox" to="Snake2" method="_on_HurtBox_area_entered"]
+[connection signal="animation_finished" from="Snake3/AnimatedSprite" to="Snake3" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Snake3/MCDetector" to="Snake3" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="Snake3/MCDetector" to="Snake3" method="_on_MCDetector_body_exited"]
+[connection signal="body_entered" from="Snake3/AttackDetector" to="Snake3" method="_on_AttackDetector_body_entered"]
+[connection signal="area_entered" from="Snake3/HurtBox" to="Snake3" method="_on_HurtBox_area_entered"]
+[connection signal="body_entered" from="EvilTriangle/MCDetector" to="EvilTriangle" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="EvilTriangle/MCDetector" to="EvilTriangle" method="_on_MCDetector_body_exited"]
+[connection signal="body_entered" from="EvilTriangle2/MCDetector" to="EvilTriangle2" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="EvilTriangle2/MCDetector" to="EvilTriangle2" method="_on_MCDetector_body_exited"]
+[connection signal="body_entered" from="EvilTriangle3/MCDetector" to="EvilTriangle3" method="_on_MCDetector_body_entered"]
+[connection signal="body_exited" from="EvilTriangle3/MCDetector" to="EvilTriangle3" method="_on_MCDetector_body_exited"]
 [connection signal="body_entered" from="Spike/Area2D" to="Spike" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike2/Area2D" to="Spike2" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike3/Area2D" to="Spike3" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike4/Area2D" to="Spike4" method="_on_Area2D_body_entered"]
 
 [editable path="frog/HurtBox"]
+[editable path="frog2/HurtBox"]
+[editable path="frog3/HurtBox"]
 [editable path="Snake/HurtBox"]
-[editable path="KingScorpion/HurtBox"]
+[editable path="Snake2/HurtBox"]
+[editable path="Snake3/HurtBox"]

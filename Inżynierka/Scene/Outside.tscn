@@ -368,7 +368,7 @@ shape = SubResource( 9 )
 position = Vector2( 2449.64, 744.314 )
 
 [node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher/CoinBox" index="0"]
-frame = 4
+frame = 3
 
 [node name="ChestBox" parent="SpriteBank/TossACoinToTheWitcher" index="1"]
 position = Vector2( 3797.64, 110.314 )
@@ -384,9 +384,6 @@ frame = 0
 
 [node name="CoinBox" parent="SpriteBank/TossACoinToTheWitcher3" index="0"]
 position = Vector2( 1232.64, 1421.31 )
-
-[node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher3/CoinBox" index="0"]
-frame = 1
 
 [node name="ChestBox" parent="SpriteBank/TossACoinToTheWitcher3" index="1"]
 position = Vector2( 1178.64, -402.686 )
@@ -404,7 +401,7 @@ frame = 0
 position = Vector2( 566.636, 1075.31 )
 
 [node name="AnimatedSprite" parent="SpriteBank/TossACoinToTheWitcher4/CoinBox" index="0"]
-frame = 4
+frame = 3
 
 [node name="ChestBox" parent="SpriteBank/TossACoinToTheWitcher4" index="1"]
 position = Vector2( 162.636, 687.314 )
@@ -417,7 +414,7 @@ scale = Vector2( 0.512, 0.295 )
 frame = 0
 
 [node name="PlayerInfo" parent="." instance=ExtResource( 1 )]
-position = Vector2( -185.364, 998.314 )
+position = Vector2( -445.364, 1055.31 )
 
 [node name="AnimatedSprite" parent="PlayerInfo/Player" index="0"]
 frame = 2
@@ -529,31 +526,80 @@ position = Vector2( -1259.36, 140.314 )
 position = Vector2( 1360.64, 854.314 )
 
 [node name="frog" parent="Enemy" index="0"]
-position = Vector2( 281, -93 )
+position = Vector2( 357.996, -70.0003 )
 
-[node name="Snake" parent="Enemy" index="1"]
-position = Vector2( 953, -80 )
+[node name="frog2" parent="Enemy" index="1"]
+position = Vector2( -459.004, 603 )
 
-[node name="KingScorpion" parent="Enemy" index="2"]
-position = Vector2( 3168, -102 )
+[node name="AnimatedSprite" parent="Enemy/frog2" index="1"]
+frame = 0
 
-[node name="Spike" parent="Enemy" index="3"]
+[node name="frog3" parent="Enemy" index="2"]
+position = Vector2( -422.004, -433 )
+
+[node name="AnimatedSprite" parent="Enemy/frog3" index="1"]
+frame = 0
+
+[node name="Snake" parent="Enemy" index="3"]
+position = Vector2( 1009, -110 )
+
+[node name="AnimatedSprite" parent="Enemy/Snake" index="1"]
+frame = 3
+
+[node name="Snake2" parent="Enemy" index="4"]
+position = Vector2( 2401, -1457 )
+
+[node name="AnimatedSprite" parent="Enemy/Snake2" index="1"]
+frame = 3
+
+[node name="Snake3" parent="Enemy" index="5"]
+position = Vector2( 1670, -754 )
+scale = Vector2( 1.58886, 4.18552 )
+
+[node name="AnimatedSprite" parent="Enemy/Snake3" index="1"]
+frame = 0
+
+[node name="RayCast2D" parent="Enemy/Snake3" index="2"]
+position = Vector2( -50.9799, -8.36216 )
+
+[node name="EvilTriangle" parent="Enemy" index="6"]
+visible = false
+position = Vector2( 8091, 2630 )
+
+[node name="AnimatedSprite" parent="Enemy/EvilTriangle" index="1"]
+frame = 0
+
+[node name="EvilTriangle2" parent="Enemy" index="7"]
+visible = false
+position = Vector2( 9009, 3163 )
+
+[node name="AnimatedSprite" parent="Enemy/EvilTriangle2" index="1"]
+frame = 0
+
+[node name="EvilTriangle3" parent="Enemy" index="8"]
+visible = false
+position = Vector2( 7086, 2544 )
+
+[node name="AnimatedSprite" parent="Enemy/EvilTriangle3" index="1"]
+frame = 1
+
+[node name="Spike" parent="Enemy" index="9"]
 visible = true
-position = Vector2( 2190, -653 )
+position = Vector2( 2190, -633 )
 scale = Vector2( 0.130346, 0.385223 )
 
 [node name="CollisionShape2D" parent="Enemy/Spike/Area2D" index="0"]
 position = Vector2( -17.5, 177.397 )
 
-[node name="Spike2" parent="Enemy" index="4"]
+[node name="Spike2" parent="Enemy" index="10"]
 visible = true
-position = Vector2( 1752, -850 )
+position = Vector2( 1754, -825 )
 scale = Vector2( 0.127346, 0.411266 )
 
 [node name="CollisionShape2D" parent="Enemy/Spike2/Area2D" index="0"]
 position = Vector2( 1397.23, 638.84 )
 
-[node name="Spike3" parent="Enemy" index="5"]
+[node name="Spike3" parent="Enemy" index="11"]
 visible = true
 position = Vector2( -983, -1208 )
 scale = Vector2( -0.280779, 0.30509 )
@@ -561,7 +607,7 @@ scale = Vector2( -0.280779, 0.30509 )
 [node name="CollisionShape2D" parent="Enemy/Spike3/Area2D" index="0"]
 position = Vector2( -19, 177.969 )
 
-[node name="Spike4" parent="Enemy" index="6"]
+[node name="Spike4" parent="Enemy" index="12"]
 position = Vector2( 48.9961, 392 )
 rotation = -1.5799
 scale = Vector2( 1, 4.24242 )
@@ -585,5 +631,8 @@ position = Vector2( -12.0956, 184.182 )
 [editable path="JumpMarioJump/JumpPad6"]
 [editable path="Enemy"]
 [editable path="Enemy/frog/HurtBox"]
+[editable path="Enemy/frog2/HurtBox"]
+[editable path="Enemy/frog3/HurtBox"]
 [editable path="Enemy/Snake/HurtBox"]
-[editable path="Enemy/KingScorpion/HurtBox"]
+[editable path="Enemy/Snake2/HurtBox"]
+[editable path="Enemy/Snake3/HurtBox"]
