@@ -25,7 +25,7 @@ func _ready():
 
 func _process(delta):
 	Move_Hero()
-
+	QuitGame()
 
 func Move_Hero():
 	var Move = Vector2.ZERO
@@ -86,7 +86,9 @@ func _on_Hitbox2_area_entered(area):
 			$AnimatedSprite.play("Dead")
 			dead = true
 
-
+func QuitGame():
+	if Input.is_action_pressed("Quit"):
+		get_tree().quit()
 
 
 
