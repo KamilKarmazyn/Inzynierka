@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scene/PlayerInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Graphics/Flat.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scene/TossACoinToTheWitcher.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/JumpPad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/TheDoor.gd" type="Script" id=7]
 [ext_resource path="res://Graphics/Torch2.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/Background2512.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/Torch.png" type="Texture" id=11]
@@ -190,6 +191,9 @@ points = PoolVector2Array( 29.7788, 63.8888, 0, 63.695, 0, 0.1264, 30, 0.1264 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 69.5, 84.5 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
@@ -289,6 +293,15 @@ position = Vector2( 1913, -2170 )
 scale = Vector2( 4.75199, 4.25668 )
 texture = ExtResource( 3 )
 offset = Vector2( 114.092, 133.538 )
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="GameRoute/Sprite2"]
+position = Vector2( -403.2, 512.371 )
+scale = Vector2( 0.210438, 0.234925 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameRoute/Sprite2/Area2D"]
+position = Vector2( 2470.5, -1571.5 )
+shape = SubResource( 18 )
 
 [node name="ToManyTorch" type="Node" parent="GameRoute"]
 
@@ -359,7 +372,7 @@ position = Vector2( -2391, 599 )
 position = Vector2( -1829, -188 )
 
 [node name="AnimatedSprite" parent="TossACoinToTheWitcher/CoinBox" index="0"]
-frame = 1
+frame = 2
 
 [node name="ChestBox" parent="TossACoinToTheWitcher" index="1"]
 position = Vector2( -566, -896 )
@@ -368,12 +381,15 @@ position = Vector2( -566, -896 )
 position = Vector2( -1737, -1488 )
 
 [node name="AnimatedSprite" parent="TossACoinToTheWitcher/GemBox" index="0"]
-frame = 1
+frame = 3
 
 [node name="TossACoinToTheWitcher2" parent="." instance=ExtResource( 4 )]
 
 [node name="CoinBox" parent="TossACoinToTheWitcher2" index="0"]
 position = Vector2( 220, -1111 )
+
+[node name="AnimatedSprite" parent="TossACoinToTheWitcher2/CoinBox" index="0"]
+frame = 1
 
 [node name="ChestBox" parent="TossACoinToTheWitcher2" index="1"]
 position = Vector2( 831, -511 )
@@ -382,7 +398,7 @@ position = Vector2( 831, -511 )
 position = Vector2( 2427, 899 )
 
 [node name="AnimatedSprite" parent="TossACoinToTheWitcher2/GemBox" index="0"]
-frame = 3
+frame = 5
 
 [node name="TossACoinToTheWitcher3" parent="." instance=ExtResource( 4 )]
 
@@ -390,7 +406,7 @@ frame = 3
 position = Vector2( -190, 953 )
 
 [node name="AnimatedSprite" parent="TossACoinToTheWitcher3/CoinBox" index="0"]
-frame = 3
+frame = 4
 
 [node name="ChestBox" parent="TossACoinToTheWitcher3" index="1"]
 position = Vector2( 1384, 515 )
@@ -399,7 +415,7 @@ position = Vector2( 1384, 515 )
 position = Vector2( -1288, 212 )
 
 [node name="AnimatedSprite" parent="TossACoinToTheWitcher3/GemBox" index="0"]
-frame = 2
+frame = 4
 
 [node name="JumpPad" parent="." instance=ExtResource( 5 )]
 
@@ -522,6 +538,8 @@ position = Vector2( 4849, 3198 )
 
 [node name="Spike4" parent="Enemy" index="12"]
 position = Vector2( 5456, 2936 )
+
+[connection signal="body_entered" from="GameRoute/Sprite2/Area2D" to="GameRoute/Sprite2" method="_on_Area2D_body_entered"]
 
 [editable path="TossACoinToTheWitcher"]
 [editable path="TossACoinToTheWitcher2"]

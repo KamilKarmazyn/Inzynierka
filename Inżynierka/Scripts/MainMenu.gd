@@ -16,3 +16,7 @@ func _on_Off_pressed():
 
 func _on_VolumeSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_Author_pressed():
+	get_tree().change_scene("res://Scene/Author.tscn")

@@ -63,19 +63,7 @@ func _on_AttackDetector_body_entered(body):
 	pass # Replace with function body.
 
 
-
-func _on_Hitbox_area_entered(area):
-	if area.is_in_group("BadGuy"):
-		$AnimatedSprite.play("Auc")
-		velocity.x = -knockback if rushLeft else knockback
-		velocity.y -= 1000
-		health -= 1
-		get_parent().find_node("UI").find_node("HealthSprite").frame -= 1
-		if health <= 0 and not dead:
-			$AnimatedSprite.play("Dead")
-			dead = true
-
-func _on_Hitbox2_area_entered(area):
+func _on_Hitbox3_area_entered(area):
 		if area.is_in_group("BadGuy"):
 			$AnimatedSprite.play("Auc")
 			velocity.x = knockback if rushLeft else -knockback
@@ -83,7 +71,18 @@ func _on_Hitbox2_area_entered(area):
 			health -= 1
 			get_parent().find_node("UI").find_node("HealthSprite").frame -= 1
 		if health <= 0 and not dead:
-			$AnimatedSprite.play("Dead")
+			get_tree().reload_current_scene()
+			dead = true
+
+func _on_Hitbox2_area_entered(area):
+		if area.is_in_group("BadGuy"):
+			$AnimatedSprite.play("Auc")
+			velocity.x = -knockback if rushLeft else -knockback
+			velocity.y -= 500
+			health -= 1
+			get_parent().find_node("UI").find_node("HealthSprite").frame -= 1
+		if health <= 0 and not dead:
+			get_tree().reload_current_scene()
 			dead = true
 
 func QuitGame():
@@ -94,8 +93,6 @@ func QuitGame():
 
 
 func _on_AnimatedSprite_animation_finished():
-	if ($AnimatedSprite.animation == "Dead"):
-			get_tree().reload_current_scene()
 	if ($AnimatedSprite.animation == "Auc"):
 		$AnimatedSprite.play("stop")
 
@@ -110,3 +107,6 @@ func _on_CoinBox_area_entered(area):
 	if area.is_in_group("Gem"):
 		chest += 1
 		get_parent().find_node("Tresure").find_node("Gem").frame += 1
+
+
+

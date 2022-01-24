@@ -38,14 +38,14 @@ animations = [ {
 "name": "Dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "Auc",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -53,7 +53,7 @@ animations = [ {
 extents = Vector2( 3.06466, 3.05086 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1.13827, 2.79711 )
+extents = Vector2( 1.08915, 2.73433 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1.50838, 2.42521 )
@@ -91,17 +91,21 @@ current = true
 zoom = Vector2( 0.8, 0.8 )
 smoothing_enabled = true
 
-[node name="Hitbox" parent="Player" instance=ExtResource( 12 )]
+[node name="Hitbox3" parent="Player" instance=ExtResource( 12 )]
+position = Vector2( -6.8348, 0.0963554 )
+scale = Vector2( 1, 1 )
 
-[node name="CollisionShape2D" parent="Player/Hitbox" index="0"]
-position = Vector2( 0.402386, -1.68418 )
+[node name="CollisionShape2D" parent="Player/Hitbox3" index="0"]
+position = Vector2( 4.1146, -1.60232 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Hitbox2" parent="Player" instance=ExtResource( 12 )]
-position = Vector2( 0.159359, 0.0855751 )
+position = Vector2( 8.19823, 0.0963554 )
 
 [node name="CollisionShape2D" parent="Player/Hitbox2" index="0"]
-position = Vector2( -2.7847, -1.75549 )
+position = Vector2( -7.73334, -1.58481 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
@@ -158,9 +162,9 @@ hframes = 4
 script = ExtResource( 19 )
 
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
-[connection signal="area_entered" from="Player/Hitbox" to="Player" method="_on_Hitbox_area_entered"]
+[connection signal="area_entered" from="Player/Hitbox3" to="Player" method="_on_Hitbox3_area_entered"]
 [connection signal="area_entered" from="Player/Hitbox2" to="Player" method="_on_Hitbox2_area_entered"]
 [connection signal="area_entered" from="Player/TresureBox" to="Player" method="_on_CoinBox_area_entered"]
 
-[editable path="Player/Hitbox"]
+[editable path="Player/Hitbox3"]
 [editable path="Player/Hitbox2"]

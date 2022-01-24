@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Exit.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/CaveStory.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Author256.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/BackgroundMenu.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/Play.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/ExitNV.png" type="Texture" id=9]
@@ -22,10 +23,10 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="Play" type="Button" parent="."]
-margin_left = 6.21735
-margin_top = 156.126
-margin_right = 257.217
-margin_bottom = 397.126
+margin_left = 8.0
+margin_top = 86.0
+margin_right = 259.0
+margin_bottom = 327.0
 size_flags_horizontal = 0
 icon = ExtResource( 8 )
 flat = true
@@ -37,11 +38,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Author" type="Button" parent="."]
+margin_left = 22.0
+margin_top = 262.0
+margin_right = 273.0
+margin_bottom = 503.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource( 5 )
+flat = true
+clip_text = true
+align = 0
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Exit" type="Button" parent="."]
-margin_left = 15.0
-margin_top = 408.0
-margin_right = 259.0
-margin_bottom = 632.0
+margin_left = 6.0
+margin_top = 444.0
+margin_right = 250.0
+margin_bottom = 668.0
 shortcut_in_tooltip = false
 icon = ExtResource( 9 )
 flat = true
@@ -83,5 +100,6 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Play" to="Play" method="_on_Button_pressed"]
+[connection signal="pressed" from="Author" to="." method="_on_Author_pressed"]
 [connection signal="pressed" from="Exit" to="Exit" method="_on_Button_pressed"]
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]

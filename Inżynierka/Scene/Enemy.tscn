@@ -23,6 +23,11 @@ extents = Vector2( 7.02332, 11.8771 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Attack",
@@ -32,11 +37,6 @@ animations = [ {
 "loop": true,
 "name": "Walk",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Dead",
-"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -54,6 +54,11 @@ extents = Vector2( 5.48589, 7.25 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Attack",
@@ -62,11 +67,6 @@ animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Dead",
 "speed": 5.0
 } ]
 
@@ -117,7 +117,6 @@ shape = SubResource( 1 )
 position = Vector2( 16.7202, 121.435 )
 frames = SubResource( 2 )
 animation = "Attack"
-frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( -9.0448, -126.774 )
@@ -136,6 +135,7 @@ position = Vector2( -28.1165, 1.2085 )
 shape = SubResource( 3 )
 
 [node name="AttackDetector" type="Area2D" parent="frog" groups=["BadGuy"]]
+monitoring = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="frog/AttackDetector" groups=["BadGuy"]]
 position = Vector2( -15.2576, 1.79907 )
@@ -161,7 +161,6 @@ shape = SubResource( 1 )
 position = Vector2( 16.7202, 121.435 )
 frames = SubResource( 2 )
 animation = "Attack"
-frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( -9.0448, -126.774 )
@@ -205,7 +204,6 @@ shape = SubResource( 1 )
 position = Vector2( 16.7202, 121.435 )
 frames = SubResource( 2 )
 animation = "Attack"
-frame = 1
 speed_scale = 0.5
 playing = true
 offset = Vector2( -9.0448, -126.774 )
@@ -254,7 +252,6 @@ position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
 animation = "Dead"
-frame = 2
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake" groups=["BadGuy"]]
@@ -302,7 +299,6 @@ position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
 animation = "Dead"
-frame = 2
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake2" groups=["BadGuy"]]
@@ -350,7 +346,7 @@ position = Vector2( 1, 4.125 )
 scale = Vector2( 1, 0.859375 )
 frames = SubResource( 7 )
 animation = "Dead"
-frame = 3
+frame = 1
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Snake3" groups=["BadGuy"]]

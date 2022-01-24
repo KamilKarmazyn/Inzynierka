@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graphics/Torch2.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/Podłoga23.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Torch.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Author.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Back256.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Author" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 980, 540 )
+scale = Vector2( 1.9248, 1.08887 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite"]
+position = Vector2( -405.585, -301.273 )
+scale = Vector2( 0.79693, 1.32803 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
+margin_left = -367.0
+margin_top = -335.0
+margin_right = -125.0
+margin_bottom = -219.0
+rect_scale = Vector2( 3, 3 )
+tab_size = 9
+text = "GameDesigner, Programmer,PixelArt and More - Kamil Karmazyn"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ null ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Sprite"]
+margin_left = -508.104
+margin_top = 310.414
+margin_right = -183.104
+margin_bottom = 788.414
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Sprite/Back" to="." method="_on_Back_pressed"]
