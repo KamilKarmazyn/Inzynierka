@@ -22,14 +22,14 @@ position = Vector2( 980, 540 )
 scale = Vector2( 1.9248, 1.08887 )
 texture = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Sprite"]
+[node name="Torch" type="AnimatedSprite" parent="Sprite"]
 position = Vector2( -405.585, -301.273 )
 scale = Vector2( 0.79693, 1.32803 )
 frames = SubResource( 1 )
 frame = 2
 playing = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
+[node name="Description" type="RichTextLabel" parent="Sprite"]
 margin_left = -367.0
 margin_top = -335.0
 margin_right = -125.0

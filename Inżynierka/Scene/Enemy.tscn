@@ -10,13 +10,14 @@
 [ext_resource path="res://Graphics/CrazyFrog64jump.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/snake64.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/CrazyFrog64dead.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/KingScorpion.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/EvilTriangle.gd" type="Script" id=11]
 [ext_resource path="res://Scripts/Snake.gd" type="Script" id=12]
 [ext_resource path="res://Graphics/Spike512.png" type="Texture" id=13]
 [ext_resource path="res://Graphics/snakedead64.png" type="Texture" id=14]
 [ext_resource path="res://Graphics/EnemyTriangleslash256.png" type="Texture" id=15]
 [ext_resource path="res://Graphics/EnemyTriangle2560.png" type="Texture" id=16]
 [ext_resource path="res://Graphics/EnemyTrianglewalk256.png" type="Texture" id=17]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.02332, 11.8771 )

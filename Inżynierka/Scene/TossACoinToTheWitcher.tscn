@@ -53,6 +53,7 @@ position = Vector2( 0, -14 )
 scale = Vector2( 0.667448, 0.572335 )
 frames = SubResource( 1 )
 animation = "SHIINNYYY"
+frame = 1
 speed_scale = 0.8
 playing = true
 

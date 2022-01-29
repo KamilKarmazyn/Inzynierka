@@ -1,6 +1,6 @@
 extends Node
 
-var Menu = load("res://music/bensound-instinct.ogg")
+var Menu = load("res://music/2021-08-30_-_Boss_Time_-_www.FesliyanStudios.com.ogg")
 
 func _ready():
 	pass

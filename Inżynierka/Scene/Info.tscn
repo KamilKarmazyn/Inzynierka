@@ -8,7 +8,7 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="BackGround" type="Sprite" parent="."]
 position = Vector2( 967.5, 547 )
 scale = Vector2( 4.4043, 2.56641 )
 texture = ExtResource( 1 )
@@ -16,7 +16,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="Sprite"]
+[node name="Label" type="Label" parent="BackGround"]
 margin_left = -157.0
 margin_top = -165.0
 margin_right = 182.0
@@ -30,7 +30,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Next" type="Button" parent="Sprite"]
+[node name="Next" type="Button" parent="BackGround"]
 margin_left = 162.455
 margin_top = 154.691
 margin_right = 430.455
@@ -42,7 +42,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="Sprite"]
+[node name="Back" type="Button" parent="BackGround"]
 margin_left = -220.353
 margin_top = 155.47
 margin_right = 47.647
@@ -54,5 +54,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Sprite/Next" to="." method="_on_Next_pressed"]
-[connection signal="pressed" from="Sprite/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="BackGround/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="BackGround/Back" to="." method="_on_Back_pressed"]
