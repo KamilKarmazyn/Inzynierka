@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scene/PlayerInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Graphics/Flat.png" type="Texture" id=2]
@@ -10,65 +10,12 @@
 [ext_resource path="res://Graphics/Torch2.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/Background2512.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/Torch.png" type="Texture" id=11]
-[ext_resource path="res://Graphics/GroundOutside64.png" type="Texture" id=13]
 [ext_resource path="res://Graphics/BackgroundGame.png" type="Texture" id=14]
 [ext_resource path="res://Graphics/Background1512.png" type="Texture" id=15]
 
 [sub_resource type="AnimatedTexture" id=3]
 
 [sub_resource type="AnimatedTexture" id=13]
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
-
-[sub_resource type="TileSet" id=5]
-0/name = "GroundOutside64.png 0"
-0/texture = ExtResource( 13 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 32 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 4 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 4 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-
-[sub_resource type="TileSet" id=7]
-0/name = "GroundOutside64.png 0"
-0/texture = ExtResource( 13 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 6 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 6 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -191,9 +138,6 @@ points = PoolVector2Array( 29.7788, 63.8888, 0, 63.695, 0, 0.1264, 30, 0.1264 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 69.5, 84.5 )
-
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 9 ) ],
@@ -201,6 +145,9 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 69.5, 84.5 )
 
 [node name="ThePiramidLVL1" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -255,19 +202,6 @@ texture = ExtResource( 10 )
 
 [node name="GameRoute" type="Node" parent="."]
 
-[node name="GroundOutside05" type="TileMap" parent="GameRoute"]
-position = Vector2( 3, 0 )
-tile_set = SubResource( 5 )
-cell_size = Vector2( 32, 32 )
-show_collision = true
-format = 1
-
-[node name="GrandOutside1" type="TileMap" parent="GameRoute"]
-position = Vector2( 1, 0 )
-tile_set = SubResource( 7 )
-show_collision = true
-format = 1
-
 [node name="GameBoard" type="TileMap" parent="GameRoute"]
 position = Vector2( -1, 0 )
 tile_set = SubResource( 11 )
@@ -288,27 +222,13 @@ scale = Vector2( 4.42187, 3.25 )
 texture = ExtResource( 3 )
 offset = Vector2( 114.092, 133.538 )
 
-[node name="Sprite2" type="Sprite" parent="GameRoute"]
-position = Vector2( 1913, -2170 )
-scale = Vector2( 4.75199, 4.25668 )
-texture = ExtResource( 3 )
-offset = Vector2( 114.092, 133.538 )
-script = ExtResource( 7 )
-
-[node name="Area2D" type="Area2D" parent="GameRoute/Sprite2"]
-position = Vector2( -403.2, 512.371 )
-scale = Vector2( 0.210438, 0.234925 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameRoute/Sprite2/Area2D"]
-position = Vector2( 2470.5, -1571.5 )
-shape = SubResource( 18 )
-
 [node name="ToManyTorch" type="Node" parent="GameRoute"]
 
 [node name="Torch" type="AnimatedSprite" parent="GameRoute/ToManyTorch"]
 position = Vector2( -1224, 893 )
 scale = Vector2( 0.370944, 0.43716 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -316,7 +236,6 @@ playing = true
 position = Vector2( -13, 885 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -324,7 +243,6 @@ playing = true
 position = Vector2( -1415, 219 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -332,7 +250,6 @@ playing = true
 position = Vector2( -689, -824 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -340,6 +257,7 @@ playing = true
 position = Vector2( 889, -473 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -347,7 +265,6 @@ playing = true
 position = Vector2( 1171, 509 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -355,7 +272,6 @@ playing = true
 position = Vector2( 1063, -1176 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -363,170 +279,56 @@ playing = true
 position = Vector2( 2278, -1559 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
 [node name="PlayerInfo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2391, 599 )
 
-[node name="TossACoinToTheWitcher" parent="." instance=ExtResource( 4 )]
-
-[node name="CoinBox" parent="TossACoinToTheWitcher" index="0"]
-position = Vector2( -1829, -188 )
-
-[node name="AnimatedSprite" parent="TossACoinToTheWitcher/CoinBox" index="0"]
-frame = 2
-
-[node name="ChestBox" parent="TossACoinToTheWitcher" index="1"]
-position = Vector2( -566, -896 )
-
-[node name="GemBox" parent="TossACoinToTheWitcher" index="2"]
-position = Vector2( -1737, -1488 )
-
-[node name="AnimatedSprite" parent="TossACoinToTheWitcher/GemBox" index="0"]
-frame = 7
-
-[node name="TossACoinToTheWitcher2" parent="." instance=ExtResource( 4 )]
-
-[node name="CoinBox" parent="TossACoinToTheWitcher2" index="0"]
-position = Vector2( 220, -1111 )
-
-[node name="AnimatedSprite" parent="TossACoinToTheWitcher2/CoinBox" index="0"]
-frame = 1
-
-[node name="ChestBox" parent="TossACoinToTheWitcher2" index="1"]
-position = Vector2( 831, -511 )
-
-[node name="GemBox" parent="TossACoinToTheWitcher2" index="2"]
-position = Vector2( 2427, 899 )
-
-[node name="AnimatedSprite" parent="TossACoinToTheWitcher2/GemBox" index="0"]
-frame = 0
-
-[node name="TossACoinToTheWitcher3" parent="." instance=ExtResource( 4 )]
-
-[node name="CoinBox" parent="TossACoinToTheWitcher3" index="0"]
-position = Vector2( -190, 953 )
-
-[node name="ChestBox" parent="TossACoinToTheWitcher3" index="1"]
-position = Vector2( 1384, 515 )
-
-[node name="GemBox" parent="TossACoinToTheWitcher3" index="2"]
-position = Vector2( -1288, 212 )
-
-[node name="JumpPad" parent="." instance=ExtResource( 5 )]
-
-[node name="JumpPad" parent="JumpPad" index="0"]
-position = Vector2( -1184, 643 )
-
-[node name="JumpPadMedium" parent="JumpPad" index="1"]
-position = Vector2( -1466, 385 )
-
-[node name="JumpPadStrong" parent="JumpPad" index="2"]
-position = Vector2( -1862, 3 )
-
-[node name="JumpPad2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 780, 532 )
-
-[node name="JumpPad" parent="JumpPad2" index="0"]
-position = Vector2( -1744, -1606 )
-
-[node name="JumpPadMedium" parent="JumpPad2" index="1"]
-position = Vector2( 948, 317 )
-
-[node name="JumpPadStrong" parent="JumpPad2" index="2"]
-position = Vector2( -2004, -907 )
-
-[node name="JumpPad3" parent="." instance=ExtResource( 5 )]
-
-[node name="JumpPad" parent="JumpPad3" index="0"]
-position = Vector2( -1737, -1467 )
-
-[node name="JumpPadMedium" parent="JumpPad3" index="1"]
-position = Vector2( 1249, -1460 )
-
-[node name="JumpPadStrong" parent="JumpPad3" index="2"]
-position = Vector2( -1146, -1076 )
-
-[node name="JumpPad4" parent="." instance=ExtResource( 5 )]
-
-[node name="JumpPad" parent="JumpPad4" index="0"]
-position = Vector2( 1687, -1627 )
-
-[node name="CollisionShape2D" parent="JumpPad4/JumpPad" index="0"]
-position = Vector2( -5.88208, 60.6793 )
-
-[node name="JumpPadMedium" parent="JumpPad4" index="1"]
-position = Vector2( -709, -1076 )
-
-[node name="JumpPadStrong" parent="JumpPad4" index="2"]
-position = Vector2( 1564, 322 )
-
-[node name="JumpPad5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2727.6, 1890.36 )
-scale = Vector2( 3.84, 4.96 )
-
-[node name="JumpPad" parent="JumpPad5" index="0"]
-position = Vector2( 2744.9, 1039.44 )
-
-[node name="JumpPadMedium" parent="JumpPad5" index="1"]
-position = Vector2( -613.438, -601.686 )
-scale = Vector2( 0.150148, 0.114362 )
-
-[node name="JumpPadStrong" parent="JumpPad5" index="2"]
-position = Vector2( 2774.06, 348.718 )
-
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 
 [node name="frog" parent="Enemy" index="0"]
 position = Vector2( -568, -795 )
 
-[node name="AnimatedSprite" parent="Enemy/frog" index="1"]
-frame = 1
-
 [node name="frog2" parent="Enemy" index="1"]
 position = Vector2( -1678, 673 )
 
-[node name="AnimatedSprite" parent="Enemy/frog2" index="1"]
-frame = 1
-
 [node name="frog3" parent="Enemy" index="2"]
 position = Vector2( -1018, 995 )
-
-[node name="AnimatedSprite" parent="Enemy/frog3" index="1"]
-frame = 1
 
 [node name="Snake" parent="Enemy" index="3"]
 position = Vector2( -601, 59 )
 
 [node name="AnimatedSprite" parent="Enemy/Snake" index="1"]
-frame = 2
+frame = 1
 
 [node name="Snake2" parent="Enemy" index="4"]
 position = Vector2( 1109, -515 )
 
 [node name="AnimatedSprite" parent="Enemy/Snake2" index="1"]
-frame = 2
+frame = 1
 
 [node name="Snake3" parent="Enemy" index="5"]
 position = Vector2( 2115, 903 )
 
 [node name="AnimatedSprite" parent="Enemy/Snake3" index="1"]
-frame = 3
+frame = 2
 
 [node name="EvilTriangle" parent="Enemy" index="6"]
 position = Vector2( 683, 953 )
+
+[node name="AnimatedSprite" parent="Enemy/EvilTriangle" index="1"]
+frame = 0
 
 [node name="EvilTriangle2" parent="Enemy" index="7"]
 position = Vector2( 1186, -1271 )
 scale = Vector2( 3.77315, 11.176 )
 
-[node name="AnimatedSprite" parent="Enemy/EvilTriangle2" index="1"]
-frame = 0
-
 [node name="EvilTriangle3" parent="Enemy" index="8"]
 position = Vector2( 1230, 571 )
+
+[node name="AnimatedSprite" parent="Enemy/EvilTriangle3" index="1"]
+frame = 1
 
 [node name="Spike" parent="Enemy" index="9"]
 visible = true
@@ -543,16 +345,146 @@ position = Vector2( 4849, 3198 )
 [node name="Spike4" parent="Enemy" index="12"]
 position = Vector2( 5456, 2936 )
 
-[connection signal="body_entered" from="GameRoute/Sprite2/Area2D" to="GameRoute/Sprite2" method="_on_Area2D_body_entered"]
+[node name="JumpMarioJump" type="Node" parent="."]
 
-[editable path="TossACoinToTheWitcher"]
-[editable path="TossACoinToTheWitcher2"]
-[editable path="TossACoinToTheWitcher3"]
-[editable path="JumpPad"]
-[editable path="JumpPad2"]
-[editable path="JumpPad3"]
-[editable path="JumpPad4"]
-[editable path="JumpPad5"]
+[node name="JumpPad2" parent="JumpMarioJump" instance=ExtResource( 5 )]
+position = Vector2( 781, 532 )
+
+[node name="JumpPad" parent="JumpMarioJump/JumpPad2" index="0"]
+position = Vector2( -1744, -1606 )
+
+[node name="JumpPadMedium" parent="JumpMarioJump/JumpPad2" index="1"]
+position = Vector2( 948, 317 )
+
+[node name="JumpPadStrong" parent="JumpMarioJump/JumpPad2" index="2"]
+position = Vector2( -2004, -907 )
+
+[node name="JumpPad3" parent="JumpMarioJump" instance=ExtResource( 5 )]
+position = Vector2( 391, 266 )
+
+[node name="JumpPad" parent="JumpMarioJump/JumpPad3" index="0"]
+position = Vector2( -1737, -1467 )
+
+[node name="JumpPadMedium" parent="JumpMarioJump/JumpPad3" index="1"]
+position = Vector2( 1249, -1460 )
+
+[node name="JumpPadStrong" parent="JumpMarioJump/JumpPad3" index="2"]
+position = Vector2( -1146, -1076 )
+
+[node name="JumpPad4" parent="JumpMarioJump" instance=ExtResource( 5 )]
+position = Vector2( 391, 266 )
+
+[node name="JumpPad" parent="JumpMarioJump/JumpPad4" index="0"]
+position = Vector2( 1687, -1627 )
+
+[node name="CollisionShape2D" parent="JumpMarioJump/JumpPad4/JumpPad" index="0"]
+position = Vector2( -5.88208, 60.6793 )
+
+[node name="JumpPadMedium" parent="JumpMarioJump/JumpPad4" index="1"]
+position = Vector2( -709, -1076 )
+
+[node name="JumpPadStrong" parent="JumpMarioJump/JumpPad4" index="2"]
+position = Vector2( 1564, 322 )
+
+[node name="JumpPad5" parent="JumpMarioJump" instance=ExtResource( 5 )]
+position = Vector2( 2728.6, 1890.36 )
+scale = Vector2( 3.84, 4.96 )
+
+[node name="JumpPad" parent="JumpMarioJump/JumpPad5" index="0"]
+position = Vector2( 2744.9, 1039.44 )
+
+[node name="JumpPadMedium" parent="JumpMarioJump/JumpPad5" index="1"]
+position = Vector2( -613.438, -601.686 )
+scale = Vector2( 0.150148, 0.114362 )
+
+[node name="JumpPadStrong" parent="JumpMarioJump/JumpPad5" index="2"]
+position = Vector2( 2774.06, 348.718 )
+
+[node name="JumpPad" parent="JumpMarioJump" instance=ExtResource( 5 )]
+position = Vector2( 391, 266 )
+
+[node name="JumpPad" parent="JumpMarioJump/JumpPad" index="0"]
+position = Vector2( -1184, 643 )
+
+[node name="JumpPadMedium" parent="JumpMarioJump/JumpPad" index="1"]
+position = Vector2( -1466, 385 )
+
+[node name="JumpPadStrong" parent="JumpMarioJump/JumpPad" index="2"]
+position = Vector2( -1862, 3 )
+
+[node name="Tresure" type="Node" parent="."]
+
+[node name="TossACoinToTheWitcher" parent="Tresure" instance=ExtResource( 4 )]
+position = Vector2( 1, 0 )
+
+[node name="CoinBox" parent="Tresure/TossACoinToTheWitcher" index="0"]
+position = Vector2( -1829, -188 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher/CoinBox" index="0"]
+frame = 3
+
+[node name="ChestBox" parent="Tresure/TossACoinToTheWitcher" index="1"]
+position = Vector2( -566, -896 )
+
+[node name="GemBox" parent="Tresure/TossACoinToTheWitcher" index="2"]
+position = Vector2( -1737, -1488 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher/GemBox" index="0"]
+frame = 2
+
+[node name="TossACoinToTheWitcher2" parent="Tresure" instance=ExtResource( 4 )]
+position = Vector2( 1, 0 )
+
+[node name="CoinBox" parent="Tresure/TossACoinToTheWitcher2" index="0"]
+position = Vector2( 220, -1111 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher2/CoinBox" index="0"]
+frame = 2
+
+[node name="ChestBox" parent="Tresure/TossACoinToTheWitcher2" index="1"]
+position = Vector2( 831, -511 )
+
+[node name="GemBox" parent="Tresure/TossACoinToTheWitcher2" index="2"]
+position = Vector2( 2427, 899 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher2/GemBox" index="0"]
+frame = 4
+
+[node name="TossACoinToTheWitcher3" parent="Tresure" instance=ExtResource( 4 )]
+position = Vector2( 1, 0 )
+
+[node name="CoinBox" parent="Tresure/TossACoinToTheWitcher3" index="0"]
+position = Vector2( -190, 953 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher3/CoinBox" index="0"]
+frame = 2
+
+[node name="ChestBox" parent="Tresure/TossACoinToTheWitcher3" index="1"]
+position = Vector2( 1384, 515 )
+
+[node name="GemBox" parent="Tresure/TossACoinToTheWitcher3" index="2"]
+position = Vector2( -1288, 212 )
+
+[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher3/GemBox" index="0"]
+frame = 1
+
+[node name="Exit" type="Sprite" parent="."]
+position = Vector2( 1912, -2170 )
+scale = Vector2( 4.75199, 4.25668 )
+texture = ExtResource( 3 )
+offset = Vector2( 114.092, 133.538 )
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="Exit"]
+position = Vector2( -403.2, 512.371 )
+scale = Vector2( 0.210438, 0.234925 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
+position = Vector2( 2470.5, -1571.5 )
+shape = SubResource( 18 )
+
+[connection signal="body_entered" from="Exit/Area2D" to="Exit" method="_on_Area2D_body_entered"]
+
 [editable path="Enemy"]
 [editable path="Enemy/frog/HurtBox"]
 [editable path="Enemy/frog2/HurtBox"]
@@ -560,3 +492,11 @@ position = Vector2( 5456, 2936 )
 [editable path="Enemy/Snake/HurtBox"]
 [editable path="Enemy/Snake2/HurtBox"]
 [editable path="Enemy/Snake3/HurtBox"]
+[editable path="JumpMarioJump/JumpPad2"]
+[editable path="JumpMarioJump/JumpPad3"]
+[editable path="JumpMarioJump/JumpPad4"]
+[editable path="JumpMarioJump/JumpPad5"]
+[editable path="JumpMarioJump/JumpPad"]
+[editable path="Tresure/TossACoinToTheWitcher"]
+[editable path="Tresure/TossACoinToTheWitcher2"]
+[editable path="Tresure/TossACoinToTheWitcher3"]
