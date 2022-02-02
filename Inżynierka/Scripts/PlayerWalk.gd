@@ -29,7 +29,7 @@ func _process(delta):
 
 func Move_Hero():
 	var Move = Vector2.ZERO
-	gravity = 30
+	gravity = 15
 	Move.y += gravity	
 	if not dead and not $AnimatedSprite.animation == "Auc":
 		if Input.is_action_pressed("ui_right"):
