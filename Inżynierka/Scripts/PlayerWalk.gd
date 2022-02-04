@@ -4,7 +4,7 @@ var dead = false
 const MC = "Player"
 const Speed = 20
 const knockback = 200
-const jump = -800
+const jump = -1050
 const Up = Vector2(0, -1)
 export (int) var health = 3 
 export (int) var coin = 3 
@@ -29,7 +29,7 @@ func _process(delta):
 
 func Move_Hero():
 	var Move = Vector2.ZERO
-	gravity = 15
+	gravity = 20
 	Move.y += gravity	
 	if not dead and not $AnimatedSprite.animation == "Auc":
 		if Input.is_action_pressed("ui_right"):
@@ -55,13 +55,6 @@ func Move_Hero():
 	velocity.x = clamp(velocity.x, -Max_speed, Max_speed)
 	velocity = move_and_slide(velocity, Up)
 	print(health)
-
-				
-func _on_AttackDetector_body_entered(body):
-	if Input.is_action_pressed("Left_mouse_button"):
-		$AnimatedSprite.play("Attack")
-	pass # Replace with function body.
-
 
 func _on_Hitbox3_area_entered(area):
 		if area.is_in_group("BadGuy"):
