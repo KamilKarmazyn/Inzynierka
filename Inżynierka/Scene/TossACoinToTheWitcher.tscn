@@ -53,7 +53,7 @@ position = Vector2( 0, -14 )
 scale = Vector2( 0.667448, 0.572335 )
 frames = SubResource( 1 )
 animation = "SHIINNYYY"
-frame = 1
+frame = 4
 speed_scale = 0.8
 playing = true
 
@@ -83,7 +83,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GemBox" groups=["Gem"]]
 frames = SubResource( 4 )
 animation = "SHINNYYYY"
-frame = 6
+frame = 7
 speed_scale = 0.4
 playing = true
 

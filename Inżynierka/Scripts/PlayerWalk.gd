@@ -38,7 +38,6 @@ func Move_Hero():
 		if Input.is_action_pressed("ui_left"):
 			$AnimatedSprite.flip_h = true
 			Move.x -= Speed
-		print(Move)
 		if Move.x:
 			$AnimatedSprite.play("walk")
 		else: 
@@ -49,12 +48,10 @@ func Move_Hero():
 				velocity.x = min(velocity.x + friction,0)
 		if is_on_floor():
 			if Input.is_action_just_pressed("ui_up"):
-				on_ladder = false
 				Move.y = jump
 	velocity += Move
 	velocity.x = clamp(velocity.x, -Max_speed, Max_speed)
 	velocity = move_and_slide(velocity, Up)
-	print(health)
 
 func _on_Hitbox3_area_entered(area):
 		if area.is_in_group("BadGuy"):

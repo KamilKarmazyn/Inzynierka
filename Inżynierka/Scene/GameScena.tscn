@@ -228,7 +228,6 @@ offset = Vector2( 114.092, 133.538 )
 position = Vector2( -1224, 893 )
 scale = Vector2( 0.370944, 0.43716 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -236,6 +235,7 @@ playing = true
 position = Vector2( -13, 885 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -243,6 +243,7 @@ playing = true
 position = Vector2( -1415, 219 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -250,6 +251,7 @@ playing = true
 position = Vector2( -689, -824 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -257,7 +259,6 @@ playing = true
 position = Vector2( 889, -473 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
-frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -265,6 +266,7 @@ playing = true
 position = Vector2( 1171, 509 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -272,6 +274,7 @@ playing = true
 position = Vector2( 1063, -1176 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -279,6 +282,7 @@ playing = true
 position = Vector2( 2278, -1559 )
 scale = Vector2( 0.371, 0.437 )
 frames = SubResource( 12 )
+frame = 1
 speed_scale = 0.5
 playing = true
 
@@ -290,35 +294,32 @@ position = Vector2( -2391, 599 )
 [node name="frog" parent="Enemy" index="0"]
 position = Vector2( -568, -795 )
 
+[node name="AnimatedSprite" parent="Enemy/frog" index="1"]
+frame = 0
+
 [node name="frog2" parent="Enemy" index="1"]
 position = Vector2( -1678, 673 )
+
+[node name="AnimatedSprite" parent="Enemy/frog2" index="1"]
+frame = 0
 
 [node name="frog3" parent="Enemy" index="2"]
 position = Vector2( -1018, 995 )
 
+[node name="AnimatedSprite" parent="Enemy/frog3" index="1"]
+frame = 0
+
 [node name="Snake" parent="Enemy" index="3"]
 position = Vector2( -601, 59 )
-
-[node name="AnimatedSprite" parent="Enemy/Snake" index="1"]
-frame = 1
 
 [node name="Snake2" parent="Enemy" index="4"]
 position = Vector2( 1109, -515 )
 
-[node name="AnimatedSprite" parent="Enemy/Snake2" index="1"]
-frame = 1
-
 [node name="Snake3" parent="Enemy" index="5"]
 position = Vector2( 2115, 903 )
 
-[node name="AnimatedSprite" parent="Enemy/Snake3" index="1"]
-frame = 2
-
 [node name="EvilTriangle" parent="Enemy" index="6"]
 position = Vector2( 683, 953 )
-
-[node name="AnimatedSprite" parent="Enemy/EvilTriangle" index="1"]
-frame = 0
 
 [node name="EvilTriangle2" parent="Enemy" index="7"]
 position = Vector2( 1186, -1271 )
@@ -326,9 +327,6 @@ scale = Vector2( 3.77315, 11.176 )
 
 [node name="EvilTriangle3" parent="Enemy" index="8"]
 position = Vector2( 1230, 571 )
-
-[node name="AnimatedSprite" parent="Enemy/EvilTriangle3" index="1"]
-frame = 1
 
 [node name="Spike" parent="Enemy" index="9"]
 visible = true
@@ -421,7 +419,7 @@ position = Vector2( 1, 0 )
 position = Vector2( -1829, -188 )
 
 [node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher/CoinBox" index="0"]
-frame = 3
+frame = 2
 
 [node name="ChestBox" parent="Tresure/TossACoinToTheWitcher" index="1"]
 position = Vector2( -566, -896 )
@@ -430,16 +428,13 @@ position = Vector2( -566, -896 )
 position = Vector2( -1737, -1488 )
 
 [node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher/GemBox" index="0"]
-frame = 2
+frame = 1
 
 [node name="TossACoinToTheWitcher2" parent="Tresure" instance=ExtResource( 4 )]
 position = Vector2( 1, 0 )
 
 [node name="CoinBox" parent="Tresure/TossACoinToTheWitcher2" index="0"]
 position = Vector2( 220, -1111 )
-
-[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher2/CoinBox" index="0"]
-frame = 2
 
 [node name="ChestBox" parent="Tresure/TossACoinToTheWitcher2" index="1"]
 position = Vector2( 831, -511 )
@@ -448,16 +443,13 @@ position = Vector2( 831, -511 )
 position = Vector2( 2427, 899 )
 
 [node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher2/GemBox" index="0"]
-frame = 4
+frame = 3
 
 [node name="TossACoinToTheWitcher3" parent="Tresure" instance=ExtResource( 4 )]
 position = Vector2( 1, 0 )
 
 [node name="CoinBox" parent="Tresure/TossACoinToTheWitcher3" index="0"]
 position = Vector2( -190, 953 )
-
-[node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher3/CoinBox" index="0"]
-frame = 2
 
 [node name="ChestBox" parent="Tresure/TossACoinToTheWitcher3" index="1"]
 position = Vector2( 1384, 515 )
@@ -466,7 +458,7 @@ position = Vector2( 1384, 515 )
 position = Vector2( -1288, 212 )
 
 [node name="AnimatedSprite" parent="Tresure/TossACoinToTheWitcher3/GemBox" index="0"]
-frame = 1
+frame = 0
 
 [node name="Exit" type="Sprite" parent="."]
 position = Vector2( 1912, -2170 )
@@ -485,6 +477,9 @@ shape = SubResource( 18 )
 
 [connection signal="body_entered" from="Exit/Area2D" to="Exit" method="_on_Area2D_body_entered"]
 
+[editable path="PlayerInfo"]
+[editable path="PlayerInfo/Player/Hitbox3"]
+[editable path="PlayerInfo/Player/Hitbox2"]
 [editable path="Enemy"]
 [editable path="Enemy/frog/HurtBox"]
 [editable path="Enemy/frog2/HurtBox"]
